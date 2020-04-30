@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kodland</title>
+    {% load static %}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Fjalla+One|Inter&display=swap" rel="stylesheet">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light fixed-top" style="border-bottom: 2px solid #CDCDCD;background: #FFFFFF;">
+  <img src="{% static 'images/Logo_Kodland.png' %}">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="#"><b style="font-size:24px;">Блог / Добавить статью</b></a>
+    </ul>
+  </div>
+    <img src="{% static 'images/email.png' %}" style="margin-right: 15px">
+    <img src="{% static 'images/Group.png' %}" style="margin-right: 15px">
+    <img src="{% static 'images/logout.png' %}" style="margin-right: 15px">
+</nav>
+<div class="container-fluid">
+    <div class="container">
+        <div class="row">
+           <h1 style="margin-top:150px;font-size: 45px;line-height: 52px;letter-spacing: -0.416667px;color: #315AF2;">Добавить статью</h1>
+
+
+            <form method="POST" action="" enctype="multipart/form-data">
+                {% csrf_token %}
+
+                <style>
+                    input::-webkit-input-placeholder {
+                        color: #C4C4C4;
+                        }
+                        input:-moz-placeholder { /* Firefox 18- */
+                        color: #C4C4C4;
+                        }
+                        input::-moz-placeholder {  /* Firefox 19+ */
+                        color: #C4C4C4;
+                        }
+                        input:-ms-input-placeholder {
+                        color: #C4C4C4;
+                        }
+                </style>
+                <style>
+                    #id_title{
+                        margin-top:44px;background: #FFFFFF;border: 2px solid #CDCDCD;border-radius: 3px;width: 882px;height: 48px;left: 117px;top: 306px;font-size: 24px;line-height: 52px;letter-spacing: -0.416667px;color: #315AF2;
+                    }
+                    #id_content{
+                        width: 881px;height: 478px;left: 118px;top: 391px;margin-top: 37px;background: #FFFFFF;border: 2px solid #CDCDCD;box-sizing: border-box;border-radius: 3px;
+                    }
+                </style>
+                {{form.title}}
+                {{form.content}}
+               <!-- <textarea name="content" style="width: 881px;height: 478px;left: 118px;top: 391px;margin-top: 37px;background: #FFFFFF;border: 2px solid #CDCDCD;box-sizing: border-box;border-radius: 3px;"></textarea> -->
+                <div style="position: absolute;width: 298px;height: 135px;left: 1014px;top: 391px;margin-top: -50px;background: #FFFFFF;border: 2px solid #CDCDCD;box-sizing: border-box;border-radius: 3px;">
+                {{form.image}}
+                </div>
+                <input class="btn" type="submit" name="public" value="Опубликовать" style="width: 159px;height: 50px;left: 1014px;position:absolute;margin-top:-50px;background: #E9399C;border-radius: 3px;font-family: Museo Cyrl;font-size: 18px;line-height: 22px;color: #FFFFFF;">
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>
